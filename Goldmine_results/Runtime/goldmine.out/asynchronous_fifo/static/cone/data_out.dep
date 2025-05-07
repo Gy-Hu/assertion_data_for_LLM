@@ -1,3 +1,0 @@
-fifom.data_out	data_out
-fifom.b_rptr	fifom.data_out
-fifom.fifo	fifom.data_out
