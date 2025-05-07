@@ -1,7 +1,0 @@
-bind half_adder
- i_half_adder v_half_adder(
-.S(S),
-.Cout(Cout),
-.a(a),
-.b(b)
-);

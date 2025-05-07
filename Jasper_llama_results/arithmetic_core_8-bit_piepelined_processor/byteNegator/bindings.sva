@@ -1,6 +1,0 @@
-bind byteNegator
- i_byteNegator v_byteNegator(
-.byteN(byteN),
-.byteIn(byteIn),
-.byteOut(byteOut)
-);

@@ -1,0 +1,29 @@
+# Yosys script for converting FPU_ADD SVA to BTOR format
+
+# Read Verilog design file with formal flag
+read_verilog -formal fpu_add.v
+
+# Read SVA assertion files
+read_verilog -formal bindings.sva
+read_verilog -formal property_backup.sva
+
+# Prepare design for formal verification
+prep -top fpu_add
+
+# Flatten the design hierarchy
+flatten
+
+# Ensure memories are handled correctly
+memory -nomap
+
+# Check hierarchy
+hierarchy -check
+
+# Set undefined signals
+setundef -undriven -init -expose
+
+# Run simulation for specified number of cycles
+sim -clock clk -reset rst -rstlen 1 -n 20 -w fpu_add
+
+# Write to BTOR format
+write_btor -s fpu_add.btor 
