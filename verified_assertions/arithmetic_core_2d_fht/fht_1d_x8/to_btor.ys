@@ -1,0 +1,27 @@
+# Yosys script for converting FHT_1D_X8 SVA to BTOR format
+
+# Read individual files without include directives
+read -sv fht_bfly_noFF.v fht_bfly.v fht_1d_x8.v fht_8x8_core.v mtx_trps_8x8_dpsram.v
+
+# Read SVA assertion files
+read -sv bindings.sva
+read -sv property.sva
+
+# Prepare design for formal verification
+hierarchy -check -top fht_1d_x8
+prep -top fht_1d_x8
+
+# Flatten the design hierarchy
+flatten
+
+# Ensure memories are handled correctly
+memory -nomap
+
+# Set undefined signals
+setundef -undriven -init -expose
+
+# Run simulation for specified number of cycles
+sim -clock sclk -reset rstn -rstlen 1 -n 20 -w fht_1d_x8
+
+# Write to BTOR format
+write_btor fht_1d_x8.btor 
