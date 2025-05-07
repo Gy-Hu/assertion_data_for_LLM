@@ -1,6 +1,0 @@
-strict digraph "" {
-	a -> S	 [weight=1.0];
-	a -> Cout	 [weight=1.0];
-	b -> S	 [weight=1.0];
-	b -> Cout	 [weight=1.0];
-}
