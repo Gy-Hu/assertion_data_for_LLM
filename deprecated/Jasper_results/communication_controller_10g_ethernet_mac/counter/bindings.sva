@@ -1,8 +1,0 @@
-bind counter
- i_counter v_counter(
-.clk(clk),
-.en(en),
-.value(value),
-.load(load),
-.reset(reset)
-);

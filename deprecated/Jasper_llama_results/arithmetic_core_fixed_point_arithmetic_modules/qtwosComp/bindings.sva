@@ -1,8 +1,0 @@
-bind qtwosComp
- i_qtwosComp v_qtwosComp(
-.a(a),
-.out(out),
-.b(b),
-.data(data),
-.flip(flip)
-);

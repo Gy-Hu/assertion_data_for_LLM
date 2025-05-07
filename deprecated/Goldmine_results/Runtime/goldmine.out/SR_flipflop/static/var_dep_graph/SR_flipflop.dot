@@ -1,7 +1,0 @@
-digraph "" {
-	q -> q	 [weight=1.0];
-	q -> q_bar	 [weight=1.0];
-	rst_n -> q	 [weight=5.0];
-	s -> q	 [weight=4.0];
-	r -> q	 [weight=4.0];
-}
